@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rodada Cali · Grupo UMA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* ====================================================================
+       MANUAL DE IDENTIDAD VISUAL CORPORATIVA — GRUPO UMA
+       ==================================================================== */
+    /* Colores Principales Corporativos */
+    --uma-red: #E30613;          /* Rojo UMA Oficial */
+    --uma-red-hover: #FF1B29;    /* Rojo UMA brillante para interacción */
+    --uma-red-dark: #A80710;     /* Rojo profundo para sombras y contrastes */
+    --uma-navy: #232758;         /* Azul Corporativo UMA Principal */
+    --uma-navy-surface: #141838; /* Azul Noche para tarjetas y contenedores */
+    --uma-ink: #0B0E21;          /* Fondo oscuro base / Deep Space */
+    --uma-line: #2E3466;         /* Líneas y bordes estructurales */
+    --uma-line-light: #444E90;   /* Bordes activos */
+    
+    /* Neutros */
+    --uma-white: #FFFFFF;
+    --uma-text: #F4F6FC;
+    --uma-muted: #A3AECF;
+    --uma-gray-dark: #373736;
+    --uma-gray-mid: #878786;
+
+    /* Colores Complementarios Oficiales */
+    --uma-blue-accent: #0F55A0;  /* Azul Acento / Focus */
+    --uma-teal: #18A5A4;         /* Turquesa métricas */
+    --uma-green: #1BA261;        /* Verde Éxito / Confirmación */
+    --uma-yellow: #FFDD0E;       /* Amarillo advertencia */
+
+    /* Tipografías Oficiales */
+    --font-display: "Barlow Condensed", "Anton", "Arial Black", sans-serif;
+    --font-heading: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --font-body: "Barlow", "Arial", system-ui, -apple-system, sans-serif;
+
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html, body {
+    background-color: var(--uma-ink);
+    color: var(--uma-text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Fondo dinámico institucional con ángulo corporativo de velocidad */
+  .bg-decor {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(circle at 90% 10%, rgba(227, 6, 19, 0.15) 0%, transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(35, 39, 88, 0.45) 0%, transparent 50%),
+      linear-gradient(135deg, rgba(11, 14, 33, 0.98) 0%, rgba(20, 24, 56, 0.95) 100%);
+  }
+  .bg-decor::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: 
+      linear-gradient(45deg, #ffffff 25%, transparent 25%), 
+      linear-gradient(-45deg, #ffffff 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, #ffffff 75%), 
+      linear-gradient(-45deg, transparent 75%, #ffffff 75%);
+    background-size: 24px 24px;
+    background-position: 0 0, 0 12px, 12px -12px, -12px 0px;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+  }
+
+  /* Top Navigation & Logo Oficial Grupo UMA */
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--uma-line);
+    margin-bottom: 28px;
+  }
+  .brand-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .brand-block .uma-brand-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  .brand-block .uma-brand-logo img {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+  .brand-badge {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(35, 39, 88, 0.5);
+    border: 1px solid var(--uma-line);
+    color: var(--uma-muted);
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  /* Hero Section */
+  .eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 14px;
+    color: var(--uma-muted);
+  }
+  .eyebrow .tag {
+    background: var(--uma-red);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.12em;
+    font-weight: 800;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(44px, 8.5vw, 96px);
+    line-height: 0.94;
+    letter-spacing: -0.01em;
+    margin: 16px 0 0;
+  }
+  h1 .hl {
+    color: var(--uma-red);
+    display: block;
+    text-shadow: 0 4px 20px rgba(227, 6, 19, 0.35);
+  }
+  .lede {
+    max-width: 62ch;
+    color: var(--uma-muted);
+    font-size: 18px;
+    margin: 18px 0 0;
+    line-height: 1.6;
+  }
+
+  /* Datos del Evento (Facts) */
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 36px;
+    background: var(--uma-navy-surface);
+    border: 1px solid var(--uma-line);
+    border-top: 4px solid var(--uma-red);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  }
+  .fact {
+    padding: 20px;
+    border-right: 1px solid var(--uma-line);
+  }
+  .fact:last-child { border-right: 0; }
+  .fact .k {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 12px;
+    color: var(--uma-muted);
+    font-weight: 700;
+  }
+  .fact .v {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-top: 6px;
+    color: var(--uma-white);
+  }
+  .fact a {
+    color: #7FC6D9;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    transition: color 0.15s;
+  }
+  .fact a:hover, .fact a:focus-visible {
+    color: var(--uma-white);
+    text-decoration: underline;
+  }
+
+  /* Grid Principal */
+  .main {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 32px;
+    margin-top: 40px;
+    align-items: start;
+  }
+
+  /* Tarjeta de Cupos en Vivo */
+  .cupos {
+    background: var(--uma-navy-surface);
+    border: 1px solid var(--uma-line);
+    border-radius: 12px;
+    padding: 28px;
+    position: sticky;
+    top: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  .cupos h2, .form h2 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--uma-muted);
+    margin: 0;
+  }
+  .count {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  .count .n {
+    font-family: var(--font-display);
+    font-size: 92px;
+    line-height: 1;
+    color: var(--uma-white);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+  }
+  .count .of {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--uma-muted);
+    text-transform: uppercase;
+  }
+  .people {
+    font-size: 14px;
+    color: var(--uma-muted);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  .people strong {
+    color: var(--uma-white);
+    font-weight: 700;
+  }
+  .bar {
+    height: 10px;
+    background: var(--uma-line);
+    border-radius: 5px;
+    margin-top: 20px;
+    overflow: hidden;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--uma-navy), var(--uma-red));
+    width: 0%;
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Grilla visual de cupos */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-top: 18px;
+  }
+  .slot {
+    aspect-ratio: 1.25;
+    border-radius: 6px;
+    border: 1px dashed var(--uma-line);
+    background: rgba(11, 14, 33, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--uma-muted);
+    font-variant-numeric: tabular-nums;
+    transition: all 0.25s ease;
+  }
+  .slot .pair {
+    display: flex;
+    gap: 4px;
+  }
+  .slot .pair i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+  }
+  .slot.taken {
+    background: var(--uma-red);
+    border: 1px solid var(--uma-red);
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(227, 6, 19, 0.3);
+  }
+  .slot.taken .pair i {
+    background: #fff;
+    border-color: #fff;
+  }
+  .slot.mine {
+    outline: 2px solid var(--uma-yellow);
+    outline-offset: 2px;
+    animation: pulseSlot 2s infinite;
+  }
+  @keyframes pulseSlot {
+    0%, 100% { outline-color: var(--uma-yellow); }
+    50% { outline-color: #fff; }
+  }
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--uma-muted);
+    font-weight: 500;
+  }
+  .legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend b {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .legend .l1 { background: var(--uma-red); }
+  .legend .l2 { border: 1px dashed var(--uma-line); }
+  .updated {
+    font-size: 12px;
+    color: var(--uma-muted);
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* Formulario de Registro */
+  .form {
+    background: var(--uma-navy-surface);
+    border: 1px solid var(--uma-line);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+  .form .intro {
+    color: var(--uma-muted);
+    margin: 8px 0 0;
+    font-size: 15px;
+  }
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 26px 0 0;
+  }
+  legend.who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin-bottom: 16px;
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--uma-white);
+  }
+  legend.who .num {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    background: var(--uma-navy);
+    border: 1px solid var(--uma-line-light);
+    color: #fff;
+    border-radius: 4px;
+    padding: 4px 10px;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .field.full {
+    grid-column: 1 / -1;
+  }
+  label {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    color: #D2D7E5;
+  }
+  input[type="text"], input[type="email"], input[type="tel"] {
+    width: 100%;
+    font-family: inherit;
+    font-size: 15px;
+    color: var(--uma-white);
+    background: var(--uma-ink);
+    border: 1px solid var(--uma-line);
+    border-radius: 6px;
+    padding: 12px 14px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  input::placeholder {
+    color: #5C678E;
+  }
+  input:focus-visible {
+    outline: none;
+    border-color: var(--uma-blue-accent);
+    box-shadow: 0 0 0 3px rgba(15, 85, 160, 0.35);
+  }
+  input[aria-invalid="true"] {
+    border-color: var(--uma-red) !important;
+    background: rgba(227, 6, 19, 0.05);
+  }
+  .divider {
+    height: 1px;
+    background: var(--uma-line);
+    margin: 28px 0 0;
+  }
+
+  .check {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #D2D7E5;
+    cursor: pointer;
+    line-height: 1.5;
+  }
+  .check input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--uma-red);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .err {
+    margin-top: 18px;
+    background: rgba(227, 6, 19, 0.12);
+    border: 1px solid var(--uma-red);
+    color: #FFD2D6;
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .btn {
+    margin-top: 24px;
+    width: 100%;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    background: var(--uma-red);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 16px 20px;
+    transition: background-color 0.15s, transform 0.1s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(227, 6, 19, 0.4);
+  }
+  .btn:hover {
+    background: var(--uma-red-hover);
+    box-shadow: 0 6px 22px rgba(227, 6, 19, 0.6);
+  }
+  .btn:active {
+    transform: translateY(1px);
+  }
+  .btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
+  .btn[disabled] {
+    background: #3B2129;
+    color: #8C6A72;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* Ticket de Confirmación Oficial */
+  .done {
+    text-align: left;
+    animation: fadeIn 0.4s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .done .stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 13px;
+    background: var(--uma-green);
+    color: #042615;
+    padding: 5px 12px;
+    border-radius: 4px;
+  }
+  .done h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 44px;
+    line-height: 1;
+    margin: 14px 0 0;
+  }
+  .ticket {
+    margin-top: 22px;
+    border: 1px solid var(--uma-line);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  .ticket .top {
+    background: var(--uma-red);
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+  .ticket .top .id {
+    font-family: var(--font-display);
+    font-size: 30px;
+    letter-spacing: 0.04em;
+    font-weight: 800;
+  }
+  .ticket .top .c {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+  .ticket dl {
+    margin: 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 20px;
+    background: var(--uma-ink);
+  }
+  .ticket dt {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 13px;
+    color: var(--uma-muted);
+    font-weight: 700;
+  }
+  .ticket dd {
+    margin: 0;
+    font-weight: 600;
+    color: var(--uma-white);
+  }
+  .done p {
+    color: var(--uma-muted);
+    margin: 18px 0 0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  /* Agotado (Sold Out) */
+  .soldout {
+    text-align: left;
+  }
+  .soldout h3 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 46px;
+    line-height: 1;
+    margin: 10px 0 0;
+    color: var(--uma-red);
+  }
+  .soldout p {
+    color: var(--uma-muted);
+    margin-top: 10px;
+  }
+
+  /* Reglas y Footer */
+  .rules {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    color: var(--uma-muted);
+    font-size: 15px;
+  }
+  .rules h4 {
+    margin: 0 0 6px;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 15px;
+    color: var(--uma-white);
+    font-weight: 800;
+  }
+  .rules p { margin: 0; line-height: 1.5; }
+
+  footer {
+    margin-top: 50px;
+    padding-top: 24px;
+    border-top: 1px solid var(--uma-line);
+    font-size: 13px;
+    color: var(--uma-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  footer a {
+    color: #7FC6D9;
+    text-decoration: none;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsividad */
+  @media (max-width: 900px) {
+    .facts { grid-template-columns: 1fr 1fr; }
+    .fact:nth-child(2) { border-right: 0; }
+    .fact:nth-child(-n+2) { border-bottom: 1px solid var(--uma-line); }
+    .main { grid-template-columns: 1fr; }
+    .cupos { position: static; }
+    .rules { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding-inline: 16px; }
+    .facts { grid-template-columns: 1fr; }
+    .fact { border-right: 0; border-bottom: 1px solid var(--uma-line); }
+    .fact:last-child { border-bottom: 0; }
+    .row { grid-template-columns: 1fr; }
+    .count .n { font-size: 76px; }
+    .form, .cupos { padding: 22px; }
+    .btn { font-size: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="bg-decor" aria-hidden="true"></div>
+
+<div class="wrap">
+
+  <!-- Cabecera Corporativa con Logotipo Oficial Grupo UMA -->
+  <nav class="header-top" aria-label="Cabecera institucional">
+    <div class="brand-block">
+      <div class="uma-brand-logo">
+        <img src="data:image/png;base64,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" alt="Logotipo Oficial Grupo UMA">
+      </div>
+    </div>
+    <div class="brand-badge">Comunidad & Colaboradores UMA</div>
+  </nav>
+
+  <!-- Hero -->
+  <header>
+    <div class="eyebrow">
+      <span class="tag">Rodada Oficial</span>
+      <span>Cali</span>
+      <span>Domingo 11 de octubre · 2026</span>
+    </div>
+    <h1>Rodada a <span class="hl">La Roca</span> mirador Dapa</h1>
+    <p class="lede">Nos vemos en el punto de encuentro y subimos juntos al mirador. Puedes inscribirte de forma individual (1 cupo) o con acompañante (2 cupos) en un solo registro.</p>
+  </header>
+
+  <!-- Datos del evento -->
+  <section class="facts" aria-label="Datos de la rodada">
+    <div class="fact">
+      <div class="k">Fecha</div>
+      <div class="v">Domingo 11 de octubre</div>
+    </div>
+    <div class="fact">
+      <div class="k">Hora de encuentro</div>
+      <div class="v">10:00 a.m.</div>
+    </div>
+    <div class="fact">
+      <div class="k">Punto de encuentro</div>
+      <div class="v">Al frente del CC Chipichape</div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Centro+Comercial+Chipichape+Cali" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
+    </div>
+    <div class="fact">
+      <div class="k">Destino</div>
+      <div class="v">La Roca restaurante mirador Dapa</div>
+      <a href="https://www.google.com/maps/search/?api=1&query=La+Roca+restaurante+mirador+Dapa+Yumbo" target="_blank" rel="noopener">Ver en Google Maps ↗</a>
+    </div>
+  </section>
+
+  <!-- Principal: Cupos y Formulario -->
+  <div class="main">
+    <aside class="cupos" aria-live="polite">
+      <h2>Cupos inscritos en Sheets</h2>
+      <div class="count">
+        <span class="n" id="nUsados">0</span>
+        <span class="of">de <span id="nTotal">40</span></span>
+      </div>
+      <div class="people">
+        Quedan <strong id="nDisp">40</strong> de <span id="nTotalText">40</span> cupos disponibles · 1 cupo por persona (1 individual o 2 pareja)
+      </div>
+      <div class="bar"><i id="bar"></i></div>
+      
+      <div class="grid" id="grid" aria-label="Mapa de cupos"></div>
+      
+      <div class="legend">
+        <span><b class="l1"></b>Ocupado</span>
+        <span><b class="l2"></b>Disponible</span>
+      </div>
+      <div class="updated" id="updated">
+        <span>Sincronizando con Google Sheets…</span>
+      </div>
+    </aside>
+
+    <section class="form" id="formPanel">
+      <div id="formWrap">
+        <h2>Formulario de inscripción</h2>
+        <p class="intro">Ingresa tus datos como titular. Si vas a asistir con acompañante, completa también sus datos (opcional).</p>
+
+        <form id="form" novalidate>
+          <fieldset>
+            <legend class="who"><span class="num">Titular</span>Tus datos</legend>
+            <div class="row">
+              <div class="field full">
+                <label for="nombre">Nombre completo</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Nombre y apellidos">
+              </div>
+              <div class="field">
+                <label for="cedula">Cédula</label>
+                <input id="cedula" name="cedula" type="text" inputmode="numeric" required placeholder="Sin puntos ni comas">
+              </div>
+              <div class="field">
+                <label for="telefono">Celular</label>
+                <input id="telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="300 000 0000">
+              </div>
+              <div class="field full">
+                <label for="email">Correo electrónico</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="divider"></div>
+
+          <fieldset>
+            <legend class="who">
+              <span class="num">Acompañante</span>
+              Datos del acompañante <span style="font-size:14px;font-weight:600;color:var(--uma-muted);text-transform:none;letter-spacing:0;">(Opcional)</span>
+            </legend>
+            <p style="font-size:13px;color:var(--uma-muted);margin:-8px 0 16px;line-height:1.4;">
+              Si vas a asistir solo, deja estos campos vacíos (se reservará <strong>1 cupo</strong>). Si llevas acompañante, llena sus datos (se reservarán <strong>2 cupos</strong>).
+            </p>
+            <div class="row">
+              <div class="field full">
+                <label for="acompNombre">Nombre completo <small style="color:var(--uma-muted);font-weight:400;text-transform:none;">(opcional)</small></label>
+                <input id="acompNombre" name="acompNombre" type="text" placeholder="Dejar vacío si vas solo">
+              </div>
+              <div class="field">
+                <label for="acompCedula">Cédula <small style="color:var(--uma-muted);font-weight:400;text-transform:none;">(opcional)</small></label>
+                <input id="acompCedula" name="acompCedula" type="text" inputmode="numeric" placeholder="Sin puntos ni comas">
+              </div>
+              <div class="field">
+                <label for="acompTelefono">Celular <small style="color:var(--uma-muted);font-weight:400;text-transform:none;">(opcional)</small></label>
+                <input id="acompTelefono" name="acompTelefono" type="tel" inputmode="tel" placeholder="300 000 0000">
+              </div>
+            </div>
+          </fieldset>
+
+          <label class="check" for="acepto">
+            <input id="acepto" type="checkbox" required>
+            <span>Confirmo que asistiré con casco certificado y documentos de la moto al día, y autorizo a Grupo UMA para el tratamiento de estos datos en la organización de la rodada.</span>
+          </label>
+
+          <div class="err" id="err" role="alert" hidden></div>
+          <button class="btn" id="btn" type="submit">Reservar ahora</button>
+        </form>
+      </div>
+
+      <!-- Confirmación de Ticket Generado -->
+      <div class="done" id="done" hidden>
+        <span class="stamp">✓ Cupo confirmado en Google Sheets</span>
+        <h3>¡Nos vemos en la rodada!</h3>
+        <div class="ticket">
+          <div class="top">
+            <span class="id" id="tId">UMA-MED-000000</span>
+            <span class="c" id="tCupo">Cupo 01 de 40</span>
+          </div>
+          <dl>
+            <dt>Titular</dt><dd id="tTitular"></dd>
+            <dt>Acompañante</dt><dd id="tAcomp"></dd>
+            <dt>Cupos</dt><dd id="tCuposQty">1 cupo</dd>
+            <dt>Fecha y Hora</dt><dd>Domingo 11 de octubre · 10:00 a.m.</dd>
+            <dt>Punto de salida</dt><dd>Al frente del CC Chipichape</dd>
+            <dt>Destino</dt><dd>La Roca restaurante mirador Dapa</dd>
+          </dl>
+        </div>
+        <p>Toma una captura de pantalla de este ticket. Recuerda llegar 15 minutos antes con tanque lleno y documentos al día.</p>
+      </div>
+
+      <!-- Cupos Agotados -->
+      <div class="soldout" id="soldout" hidden>
+        <h2>Inscripciones cerradas</h2>
+        <h3>Cupos agotados</h3>
+        <p>Los 40 cupos de la rodada Grupo UMA ya han sido completados en Google Sheets. ¡Gracias a todos por su entusiasmo!</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- Reglas y Recomendaciones -->
+  <section class="rules" aria-label="Antes de la rodada">
+    <div>
+      <h4>Llega a tiempo</h4>
+      <p>A las 10:00 a.m. al frente del CC Chipichape. Realizaremos charla técnica y salimos juntos en caravana hacia el mirador.</p>
+    </div>
+    <div>
+      <h4>Equípate seguro</h4>
+      <p>Casco reglamentario certificado para piloto y acompañante, guantes, chaqueta, SOAT y revisión técnico-mecánica vigentes.</p>
+    </div>
+    <div>
+      <h4>Registro flexible</h4>
+      <p>Puedes asistir solo (1 cupo) o con acompañante (2 cupos). Cada cédula solo puede inscribirse una vez.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>Rodada Cali · La Roca mirador Dapa · Grupo UMA © 2026</div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // =========================================================================
+  // CONFIGURACIÓN DE CONEXIÓN CON GOOGLE SHEETS
+  // =========================================================================
+  // Pega aquí la URL de la Aplicación Web de Google Apps Script (terminada en /exec)
+  // TODO Cali: URL del Web App desplegado desde la hoja de Cali (1Qpx8Tfds7TiY4S-5tZGMUKAL1XYi_g-foNPwpXkMDLY)
+  var SCRIPT_URL = "";
+  
+  var TOTAL = 40;
+  var HAS_GAS = typeof google !== 'undefined' && google.script && google.script.run;
+  var mineSlot = null;
+  var isSubmitting = false;
+
+  var $ = function(id){ return document.getElementById(id); };
+
+
+
+  // Simulación en memoria para cuando no se haya pegado la URL del Web App todavía
+  var demo = {
+    usados: 0,
+    cedulas: {}
+  };
+
+  /**
+   * Llamada unificada a Google Apps Script / Google Sheets
+   * Soporta:
+   * 1. google.script.run (cuando el HTML corre dentro de Apps Script)
+   * 2. fetch HTTP POST / GET (cuando corre como archivo HTML externo conectándose al Web App)
+   * 3. Fallback demo interactivo (para pruebas inmediatas sin errores de red)
+   */
+  function callAPI(action, data) {
+    return new Promise(function(resolve, reject){
+      // 1. Ejecución nativa en Google Apps Script
+      if (HAS_GAS) {
+        var runner = google.script.run
+          .withSuccessHandler(resolve)
+          .withFailureHandler(reject);
+        action === 'getCupos' ? runner.getCupos() : runner.registrar(data);
+        return;
+      }
+
+      // 2. Ejecución mediante Web App publicada de Google Apps Script
+      if (SCRIPT_URL && SCRIPT_URL.indexOf('http') === 0) {
+        if (action === 'getCupos') {
+          var cacheBlock = Math.floor(Date.now() / 15000);
+          var getUrl = SCRIPT_URL + (SCRIPT_URL.indexOf('?') >= 0 ? '&' : '?') + 'action=getCupos&cb=' + cacheBlock;
+          fetch(getUrl, {
+            method: 'GET',
+            mode: 'cors',
+            redirect: 'follow'
+          })
+          .then(function(res){ return res.json(); })
+          .then(resolve)
+          .catch(function(err){
+            console.warn('Error conectando a Web App GET:', err);
+            reject(err);
+          });
+          return;
+        } else if (action === 'registrar') {
+          // Usamos POST con formato text/plain para evitar bloqueos por preflight OPTIONS de CORS en GAS
+          fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'cors',
+            redirect: 'follow',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ action: 'registrar', data: data })
+          })
+          .then(function(res){ return res.json(); })
+          .then(resolve)
+          .catch(function(err){
+            console.warn('Error en fetch POST a Web App:', err);
+            reject(err);
+          });
+          return;
+        }
+      }
+
+      // 3. Fallback en memoria si aún no se configuró URL
+      setTimeout(function(){
+        if (action === 'getCupos') {
+          return resolve({
+            ok: true,
+            total: TOTAL,
+            usados: demo.usados,
+            disponibles: Math.max(0, TOTAL - demo.usados)
+          });
+        }
+
+        var c1 = String(data.cedula).replace(/\D/g, '');
+        var c2 = String(data.acompCedula).replace(/\D/g, '');
+
+        if (demo.usados >= TOTAL) {
+          return resolve({
+            ok: false,
+            agotado: true,
+            error: 'Los cupos para la rodada ya se han agotado.',
+            cupos: { total: TOTAL, usados: TOTAL, disponibles: 0 }
+          });
+        }
+        if (demo.cedulas[c1]) {
+          return resolve({ ok: false, error: 'Tu cédula ya está registrada en la rodada.' });
+        }
+        if (demo.cedulas[c2]) {
+          return resolve({ ok: false, error: 'La cédula del acompañante ya está registrada en la rodada.' });
+        }
+
+        demo.cedulas[c1] = 1;
+        demo.cedulas[c2] = 1;
+        demo.usados++;
+
+        var nuevoTicket = 'UMA-MED-' + Math.floor(100000 + Math.random() * 900000);
+        resolve({
+          ok: true,
+          id: nuevoTicket,
+          cupo: demo.usados,
+          titular: data.nombre,
+          acompanante: data.acompNombre,
+          cupos: {
+            total: TOTAL,
+            usados: demo.usados,
+            disponibles: TOTAL - demo.usados
+          }
+        });
+      }, 500);
+    });
+  }
+
+  var mineSlots = [];
+
+  // Construcción de los 40 cupos visuales (1 slot = 1 cupo)
+  var grid = $('grid');
+  grid.innerHTML = '';
+  for (var i = 1; i <= TOTAL; i++){
+    var s = document.createElement('div');
+    s.className = 'slot';
+    s.id = 'slot-' + i;
+    // Icono individual de piloto/asistente por cupo
+    s.innerHTML = '<span class="pair"><i style="width:10px;height:10px;"></i></span><span>' + (i < 10 ? '0' + i : i) + '</span>';
+    grid.appendChild(s);
+  }
+
+  // Renderizado reactivo de la UI según el estado en Sheets
+  function render(c) {
+    if (!c) return;
+    TOTAL = c.total || TOTAL;
+    var usados = Math.min(c.usados, TOTAL);
+    var disponibles = typeof c.disponibles !== 'undefined' ? c.disponibles : Math.max(0, TOTAL - usados);
+
+    $('nDisp').textContent = disponibles;
+    $('nTotal').textContent = TOTAL;
+    if ($('nTotalText')) $('nTotalText').textContent = TOTAL;
+    $('nUsados').textContent = usados;
+    $('bar').style.width = ((usados / TOTAL) * 100) + '%';
+
+    Array.prototype.forEach.call(grid.children, function(el, idx){
+      var slotNum = idx + 1;
+      var ocupado = idx < usados;
+      el.classList.toggle('taken', ocupado);
+      el.classList.toggle('mine', mineSlots.indexOf(slotNum) !== -1);
+      el.setAttribute('aria-label', 'Cupo ' + slotNum + (ocupado ? ' ocupado' : ' disponible'));
+    });
+
+    try {
+      localStorage.setItem('uma_rodada_cali_cupos_cache', JSON.stringify({
+        total: TOTAL,
+        usados: usados,
+        disponibles: disponibles
+      }));
+    } catch(e) {}
+
+    var now = new Date();
+    var timeStr = now.toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    $('updated').textContent = 'Sincronizado con Sheets: ' + timeStr;
+
+    if (disponibles <= 0 && $('done').hidden) {
+      $('formWrap').hidden = true;
+      $('soldout').hidden = false;
+    }
+    actualizarTextoBoton();
+  }
+
+  // 1. Carga instantánea de caché local (0 ms de espera al abrir la página)
+  try {
+    var localCached = localStorage.getItem('uma_rodada_cali_cupos_cache');
+    if (localCached) {
+      var parsedCache = JSON.parse(localCached);
+      render(parsedCache);
+    }
+  } catch(e) {}
+
+  // 2. Sondeo secuencial controlado (evita congestión de peticiones simultáneas)
+  var isRefreshing = false;
+  function refresh() {
+    if (isRefreshing) return;
+    isRefreshing = true;
+
+    callAPI('getCupos')
+      .then(function(res){
+        render(res.cupos || res);
+      })
+      .catch(function(err){
+        console.warn('Error en sincronización con Sheets:', err);
+      })
+      .finally(function(){
+        isRefreshing = false;
+        // Se programa la siguiente consulta 25 segundos después de terminar la actual
+        setTimeout(refresh, 25000);
+      });
+  }
+
+  // Primera sincronización en segundo plano
+  refresh();
+
+  // Validación y envío del formulario
+  var form = $('form');
+  var btn = $('btn');
+  var err = $('err');
+
+  function showErr(msg) {
+    err.textContent = msg;
+    err.hidden = !msg;
+  }
+
+  function digits(v) {
+    return String(v || '').replace(/\D/g, '');
+  }
+
+  function tieneAcomp() {
+    var n = $('acompNombre').value.trim();
+    var c = $('acompCedula').value.trim();
+    var t = $('acompTelefono').value.trim();
+    return Boolean(n || c || t);
+  }
+
+  function actualizarTextoBoton() {
+    if (isSubmitting) return;
+    btn.textContent = 'Reservar ahora';
+  }
+
+  // Restricciones automáticas de entrada según tipo de dato (solo números en cédula y celular)
+  ['cedula', 'acompCedula'].forEach(function(id){
+    var el = $(id);
+    if (!el) return;
+    el.addEventListener('input', function(){
+      this.value = this.value.replace(/\D/g, '').slice(0, 11);
+    });
+  });
+
+  ['telefono', 'acompTelefono'].forEach(function(id){
+    var el = $(id);
+    if (!el) return;
+    el.addEventListener('input', function(){
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    });
+  });
+
+  form.addEventListener('input', function(e){
+    if (e.target.getAttribute('aria-invalid') === 'true') {
+      e.target.removeAttribute('aria-invalid');
+    }
+    actualizarTextoBoton();
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (isSubmitting) return;
+    showErr('');
+
+    var data = {};
+    ['nombre', 'cedula', 'telefono', 'email', 'acompNombre', 'acompCedula', 'acompTelefono'].forEach(function(k){
+      data[k] = $(k) ? $(k).value.trim() : '';
+    });
+
+    var conAcomp = tieneAcomp();
+    var cuposNecesarios = conAcomp ? 2 : 1;
+    var disp = parseInt($('nDisp').textContent, 10);
+
+    if (!isNaN(disp) && disp < cuposNecesarios) {
+      if (disp <= 0) {
+        showErr('Los cupos para la rodada ya se han agotado.');
+        return;
+      }
+      if (conAcomp && disp === 1) {
+        showErr('Solo queda 1 cupo disponible. Para asegurar el cupo restante, por favor inscríbete sin acompañante.');
+        return;
+      }
+    }
+
+    var bad = [];
+    var primerError = '';
+
+    // Validador 1: Nombre del Titular (Mínimo 6 letras, al menos nombre y apellido)
+    var nombreLimpio = data.nombre.replace(/\s+/g, ' ').trim();
+    var partesNombre = nombreLimpio.split(' ').filter(Boolean);
+    if (partesNombre.length < 2 || nombreLimpio.length < 6 || !/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/.test(nombreLimpio)) {
+      bad.push('nombre');
+      if (!primerError) primerError = 'Ingresa tu nombre y apellido completos (solo letras, mínimo 6 caracteres).';
+    }
+
+    // Validador 2: Cédula del Titular (Numérica, 6 a 11 dígitos)
+    var c1Digits = digits(data.cedula);
+    if (c1Digits.length < 6 || c1Digits.length > 11) {
+      bad.push('cedula');
+      if (!primerError) primerError = 'La cédula debe ser numérica y tener entre 6 y 11 dígitos.';
+    }
+
+    // Validador 3: Celular del Titular (10 dígitos, iniciando en 3)
+    var telDigits = digits(data.telefono);
+    if (!/^3\d{9}$/.test(telDigits)) {
+      bad.push('telefono');
+      if (!primerError) primerError = 'El celular del titular debe tener 10 dígitos y comenzar por 3 (ej. 300 123 4567).';
+    }
+
+    // Validador 4: Correo Electrónico
+    var emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!emailRegex.test(data.email)) {
+      bad.push('email');
+      if (!primerError) primerError = 'Ingresa un correo electrónico válido (ej. usuario@correo.com).';
+    }
+
+    // Validador 5: Datos del Acompañante (Opcional, pero estricto si se ingresa alguno)
+    if (conAcomp) {
+      var acompLimpio = data.acompNombre.replace(/\s+/g, ' ').trim();
+      var partesAcomp = acompLimpio.split(' ').filter(Boolean);
+      if (partesAcomp.length < 2 || acompLimpio.length < 6 || !/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s'-]+$/.test(acompLimpio)) {
+        bad.push('acompNombre');
+        if (!primerError) primerError = 'Ingresa el nombre y apellido completos de tu acompañante.';
+      }
+
+      var c2Digits = digits(data.acompCedula);
+      if (c2Digits.length < 6 || c2Digits.length > 11) {
+        bad.push('acompCedula');
+        if (!primerError) primerError = 'La cédula del acompañante debe tener entre 6 y 11 dígitos.';
+      }
+
+      if (c1Digits && c2Digits && c1Digits === c2Digits) {
+        bad.push('acompCedula');
+        if (!primerError) primerError = 'La cédula del acompañante debe ser diferente a la del titular.';
+      }
+
+      var acompTelDigits = digits(data.acompTelefono);
+      if (!/^3\d{9}$/.test(acompTelDigits)) {
+        bad.push('acompTelefono');
+        if (!primerError) primerError = 'El celular del acompañante debe tener 10 dígitos y comenzar por 3.';
+      }
+    } else {
+      data.acompNombre = '';
+      data.acompCedula = '';
+      data.acompTelefono = '';
+    }
+
+    // Validador 6: Checkbox de Aceptación Legal y Tratamiento de Datos
+    if (!$('acepto').checked) {
+      bad.push('acepto');
+      if (!primerError) primerError = 'Debes autorizar el tratamiento de datos y confirmar tu asistencia para continuar.';
+    }
+
+    document.querySelectorAll('#form input').forEach(function(el){
+      el.removeAttribute('aria-invalid');
+    });
+
+    bad.forEach(function(k){
+      if ($(k)) $(k).setAttribute('aria-invalid', 'true');
+    });
+
+    if (bad.length) {
+      showErr(primerError);
+      if ($(bad[0])) $(bad[0]).focus();
+      return;
+    }
+
+    // Captura exacta del Timestamp y Consentimiento de Tratamiento de Datos
+    var ahora = new Date();
+    var pad = function(n){ return n < 10 ? '0' + n : n; };
+    var timestampStr = ahora.getFullYear() + '-' + pad(ahora.getMonth()+1) + '-' + pad(ahora.getDate()) + ' ' + pad(ahora.getHours()) + ':' + pad(ahora.getMinutes()) + ':' + pad(ahora.getSeconds());
+
+    data.autorizacionTratamiento = 'SÍ - ACEPTADO';
+    data.timestampAceptacion = timestampStr;
+    data.acepto = true;
+    data.cuposAReservar = cuposNecesarios;
+
+    isSubmitting = true;
+    btn.disabled = true;
+    btn.textContent = 'Verificando y Guardando en Sheets…';
+
+    callAPI('registrar', data)
+      .then(function(r){
+        isSubmitting = false;
+        if (r && r.ok) {
+          mineSlots = r.cuposAsignados || (r.cupo ? [parseInt(r.cupo, 10)] : []);
+          $('tId').textContent = r.id;
+          
+          var cupoLabel = r.cupo;
+          $('tCupo').textContent = 'Cupo(s) ' + cupoLabel + ' de ' + TOTAL;
+          $('tTitular').textContent = r.titular;
+          $('tAcomp').textContent = (r.acompanante && r.acompanante !== 'Sin acompañante') ? r.acompanante : 'Sin acompañante (asistencia individual)';
+          if ($('tCuposQty')) {
+            $('tCuposQty').textContent = (r.cuposOcupados === 2 || conAcomp) ? '2 cupos (Piloto + Acompañante)' : '1 cupo (Solo piloto)';
+          }
+
+          $('formWrap').hidden = true;
+          $('done').hidden = false;
+          render(r.cupos);
+          $('formPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          showErr((r && r.error) || 'No se pudo completar la inscripción en Google Sheets.');
+          if (r && r.cupos) render(r.cupos);
+          btn.disabled = false;
+          actualizarTextoBoton();
+        }
+      })
+      .catch(function(err){
+        isSubmitting = false;
+        showErr('Error al conectar con Google Sheets. Revisa tu conexión a internet.');
+        btn.disabled = false;
+        actualizarTextoBoton();
+      });
+  });
+})();
+</script>
+</body>
+</html>
