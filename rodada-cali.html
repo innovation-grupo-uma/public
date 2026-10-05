@@ -847,7 +847,7 @@
         <h3>¡Nos vemos en la rodada!</h3>
         <div class="ticket">
           <div class="top">
-            <span class="id" id="tId">UMA-MED-000000</span>
+            <span class="id" id="tId">UMA-CAL-000000</span>
             <span class="c" id="tCupo">Cupo 01 de 40</span>
           </div>
           <dl>
@@ -898,8 +898,8 @@
   // CONFIGURACIÓN DE CONEXIÓN CON GOOGLE SHEETS
   // =========================================================================
   // Pega aquí la URL de la Aplicación Web de Google Apps Script (terminada en /exec)
-  // TODO Cali: URL del Web App desplegado desde la hoja de Cali (1Qpx8Tfds7TiY4S-5tZGMUKAL1XYi_g-foNPwpXkMDLY)
-  var SCRIPT_URL = "";
+  // Web App desplegado desde la hoja de Cali (rodada-cali.gs)
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwp22LTZu52m50ipUf0yZBOO5Pn0MX2-r9sZSxjqvtKDHxNG8kwbfqmW_ZhPdGZMJQQeg/exec";
   
   var TOTAL = 40;
   var HAS_GAS = typeof google !== 'undefined' && google.script && google.script.run;
@@ -1003,7 +1003,7 @@
         demo.cedulas[c2] = 1;
         demo.usados++;
 
-        var nuevoTicket = 'UMA-MED-' + Math.floor(100000 + Math.random() * 900000);
+        var nuevoTicket = 'UMA-CAL-' + Math.floor(100000 + Math.random() * 900000);
         resolve({
           ok: true,
           id: nuevoTicket,
